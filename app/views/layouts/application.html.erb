@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Bizhub</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<title>Production Statistics<%if(@title!=nil)%> - <%=@title%><%end%></title>
+  <head>	
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <style type="/assets/">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      </style>
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+    	<div class ="navbar-inner">
+    		<h4><font color="white">Production Statistics</font></h4>	
+    	</div>
+      <div class="navbar-inner">
+        <div class="container">
+          <nav>
+            <ul class="nav pull-left">
+              <li><%= link_to "Home",    '/' %></li>
+              <li class="dropdown">
+                  <a class="dropdown-toggle" id="dLabel" data-toggle="dropdown" href ='#'>New Account<b class="caret"></b></a>
+                  <ul class="dropdown-menu" role='menu'  aria-labelledby="dLabel">
+                    <li><%= link_to 'New Business', new_business_path %></li>
+		    <li><%= link_to 'New Customer', new_customer_path %></li>
+		  </ul>
+	      </li>
+	      <li class="dropdown">
+                  <a class="dropdown-toggle" id="dLabel" data-toggle="dropdown" href ='#'>Log In<b class="caret"></b></a>
+                  <ul class="dropdown-menu" role='menu'  aria-labelledby="dLabel">
+                    <li><a href="/login/business">Business</a></li>
+                    <li><a href="/login/customer">Customer</a></li>
+                  </ul>
+              </li>
+            </ul>
+            <ul class = "nav pull-right">
+		<%= form_tag("/search") do%>
+		<li>Search: <%= text_field_tag(:search)%><%= submit_tag "Submit" %></li>
+		<%end%>  
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <br /><br /><br /><br /><br /><br /><br /><br />
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <% if(@links != nil) %>
+            <%= render "/sidebar/sidebar"%>
+        <%end%>
+        <div class ="span9">
+           <%= yield %>
+        </div>
+      </div>
+    </div>
 
-<%= yield %>
-
-</body>
+  </body>
 </html>

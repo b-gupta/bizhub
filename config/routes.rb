@@ -1,4 +1,13 @@
 Bizhub::Application.routes.draw do
+  resources :customers
+
+
+  resources :businesses
+
+  match "/login/business" => "businesses#login"
+  match "/login/customer" => "customers#login"
+  match "/(home)" => "application#home"
+  match "/search" => "application#search"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
