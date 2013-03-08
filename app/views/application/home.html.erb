@@ -1,0 +1,76 @@
+
+    <script>
+      $(document).ready(function(){
+        $('.carousel').carousel({
+          interval: 10000
+        });
+      });
+    </script>
+
+
+    
+<div style="clear:both; float:left;"><h1 style="margin-top: 0px; margin-bottom: 10px; ">Welcome to BizHub!</h1></div>
+
+<div id="user_nav" style="float:right; margin-top:-10px;">
+    <% if user_signed_in? %>
+      Signed in as <%= current_user.email %>. Not you?
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+    <% end %>
+</div>
+
+      <!--  Carousel -->
+      <!--  consult Bootstrap docs at 
+            http://twitter.github.com/bootstrap/javascript.html#carousel -->
+      <div id="this-carousel-id" class="carousel slide"> 
+        <div class="carousel-inner">
+          <div class="item active" style="background-image:url(<%=asset_path "store.png"%>); height: 350px; margin-top: 40px;">
+          	<div style="margin-left:120px; margin-top: 40px; clear:both; float: left;">
+            	<h1 id="carouselheader" style="margin-bottom: 10px;">Businesses</h1>
+                <div style="margin-left:25px;">
+                    <h2>Sell</h2><h5 style="text-indent: 15px;"> ...your goods and services directly through BizHub</h5><br />
+                    <h2>Reach</h2><h5 style="text-indent: 15px;"> ...new customers through your BizPage profile</h5><br />
+                    <h2>Offer</h2><h5 style="text-indent: 15px;"> ...all your goods and services through the easy-to-use Menu</h5><br />
+                    <form method="get" action="<%=new_user_registration_path%>"> <button type="submit" class="btn btn-primary"><h3 style="color:#FFF; margin-left:10px; margin-right:10px;">Sign Up</h3></button></form>
+             	</div>
+            </div>
+          </div>
+          <div class="item" style="background-image:url(<%=asset_path "woman.png"%>); height: 350px; margin-top: 40px;">
+            <div style="margin-right:90px; margin-top: 50px; clear:both; float: right;">
+            	<h1 id="carouselheader" style="margin-bottom: 10px;">Customers</h1>
+                <div style="margin-left:25px;">
+                    <h2>Buy</h2><h5 style="text-indent: 15px;"> ...your favorite goods and services fast and easy</h5><br />
+                    <h2>Search</h2><h5 style="text-indent: 15px;"> ...for new businesses based on your current location</h5><br />
+                    <h2>Pay</h2><h5 style="text-indent: 15px;"> ...automatically through your Google Wallet account</h5><br />
+                    <form method="get" action="<%=new_user_registration_path%>"> <button type="submit" class="btn btn-primary"><h3 style="color:#FFF; margin-left:10px; margin-right:10px;">Sign Up</h3></button></form>
+             	</div>
+            </div>
+          </div>
+        </div><!-- .carousel-inner -->
+        <!--  next and previous controls here
+              href values must reference the id for this carousel -->
+          <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
+      </div><!-- .carousel -->
+      <!-- end carousel -->
+      
+      <div class="row" style="border-radius: 3px; background-image:url(<%=asset_path "rowBG.png"%>); background-repeat:repeat-x; background-size: auto 100%; width: 980px;">
+        <div class="span4">
+          <h2>Simple.</h2>
+           <p style="text-indent:15px;">Search for any business, product, or service to find what you want.  Select your purchase using the easy-to-use menu displaying all that the business has to offer, then checkout with a single click!</p>
+          <p><a class="btn btn-primary" href="#">Learn More &raquo;</a></p>
+        </div>
+        <div class="span4">
+          <h2>Convenient.</h2>
+           <p style="text-indent:15px;">Order food for pickup or delivery.  Schedule appointments for whatever task you need.  Order anything from local stores, restaurants, and services.  Shop and pay directly from you computer or mobile device!</p>
+          <p><a class="btn btn-primary" href="#">Learn More &raquo;</a></p>
+       </div>
+        <div class="span4">
+          <h2>Safe.</h2>
+          <p style="text-indent:15px;">Using your Google Wallet account, your information is kept secure and will never be compromised.  You can easily manage your past transactions and keep track of what your have purchased.</p>
+          <p><a class="btn btn-primary" href="#">Learn More &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>

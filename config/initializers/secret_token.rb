@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Bizhub::Application.config.secret_token = '542713c842c7c8c36a389811acc59b986988d25c080b9fcd56edeb4fcad5e81c2b459ebfb10d8dbf487d69f7e6d382bb7e0db8b3a78129d7e6efc9ae55be49d5'
+Capstone::Application.config.secret_token = 'd638ee676e1d685a19f3de67e80397f8d6fc73c06f7d745c583924535847d9eb4bc898f65e6039957ea83f98f2dcb046b2585599a1e58fc62f4f7c387b2981d2'
