@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Bizhub::Application.load_tasks
+Capstone::Application.load_tasks

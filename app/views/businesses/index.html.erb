@@ -3,8 +3,9 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Description</th>
     <th>Address</th>
+    <th>Description</th>
+    <th>Email</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +13,10 @@
 
 <% @businesses.each do |business| %>
   <tr>
-    <td><%= business.Name %></td>
-    <td><%= business.Description %></td>
-    <td><%= business.Address %></td>
+    <td><%= business.name %></td>
+    <td><%= business.address %></td>
+    <td><%= business.description %></td>
+    <td><%= business.email %></td>
     <td><%= link_to 'Show', business %></td>
     <td><%= link_to 'Edit', edit_business_path(business) %></td>
     <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %></td>

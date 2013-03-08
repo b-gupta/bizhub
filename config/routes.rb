@@ -1,13 +1,13 @@
-Bizhub::Application.routes.draw do
-  resources :customers
-
+Capstone::Application.routes.draw do
+  devise_for :businesses
 
   resources :businesses
 
-  match "/login/business" => "businesses#login"
-  match "/login/customer" => "customers#login"
-  match "/(home)" => "application#home"
-  match "/search" => "application#search"
+
+  devise_for :users, :controllers => {:registrations => "registrations"}
+  match '/search' => 'Businesses#search', :as => :search
+  match '/' => 'Application#home', :as => :root
+  match '/valentinos' => 'Businesses#valentinos'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
